@@ -43,6 +43,7 @@ public class PictureLoad {
     public void load(ImageView loadImg,String imgUrl){
         this.loadImg = loadImg;
         this.imgUrl = imgUrl;
+        Log.d("sister","##### imgUrl  1" + imgUrl);
         Drawable drawable = loadImg.getDrawable();
         if (drawable != null && drawable instanceof BitmapDrawable) {
             Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
@@ -58,6 +59,7 @@ public class PictureLoad {
         public void run() {
             try {
                 URL url = new URL(imgUrl);
+                Log.d("sister","##### url:" + url);
                 HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setReadTimeout(10000);
