@@ -1,4 +1,4 @@
-package com.starnet.drysistertest.ui;
+package com.starnet.drysistertest.login;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

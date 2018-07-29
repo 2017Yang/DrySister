@@ -1,13 +1,18 @@
 package com.starnet.drysistertest;
 
 import android.os.AsyncTask;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+
+import com.starnet.drysistertest.LeftNavigationBar.MyDrawerListener;
+import com.starnet.drysistertest.LeftNavigationBar.NavigationTools;
 
 import java.util.ArrayList;
 
@@ -17,13 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button refreshBtn;
     private ImageView showImg;
 
-
     private ArrayList<Sister> data;
     private int curPos = 0;  // 当前显示的哪一张图片
     private int page = 1; // 当前页数
     private PictureLoad loader;
     private SisterApi sisterApi;
     private SisterTask sisterTask;
+    private DrawerLayout mDrawerLayout;
+    private LinearLayout left;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loader = new PictureLoad();
         initData();
         initUrl();
+
+
+        MyDrawerListener myDrawerListener = new MyDrawerListener();
+        mDrawerLayout.setDrawerListener(myDrawerListener);
+
+        listView = (ListView) findViewById(R.id.left_drawer);
+        NavigationTools navigationTools = new NavigationTools(MainActivity.this,listView);
+        navigationTools.drawTools();
     }
 
     private void initData() {
@@ -44,9 +59,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         showImg = (ImageView) findViewById(R.id.img_show);
         refreshBtn = (Button) findViewById(R.id.btn_refresh);
 
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        left= (LinearLayout) findViewById(R.id.left);
+
+
         showBtn.setOnClickListener(this);
         refreshBtn.setOnClickListener(this);
     }
+
+
+
+
+
 
     @Override
     public void onClick(View view) {

@@ -1,9 +1,8 @@
-package com.starnet.drysistertest.ui;
+package com.starnet.drysistertest.login;
 
 import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

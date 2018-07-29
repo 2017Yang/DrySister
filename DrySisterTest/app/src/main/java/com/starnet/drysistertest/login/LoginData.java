@@ -1,4 +1,4 @@
-package com.starnet.drysistertest.ui;
+package com.starnet.drysistertest.login;
 
 import org.litepal.crud.DataSupport;
 

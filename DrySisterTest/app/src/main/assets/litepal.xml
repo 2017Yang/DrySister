@@ -3,6 +3,6 @@
     <dbname value = "LoginData"></dbname>
     <version value = "1" ></version>
     <list>
-        <mapping class="com.starnet.drysistertest.ui.LoginData"></mapping>
+        <mapping class="com.starnet.drysistertest.login.LoginData"></mapping>
     </list>
 </litepal>
